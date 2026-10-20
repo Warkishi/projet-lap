@@ -3,121 +3,172 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Starfall Gacha</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Starfall Academy</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="app">
     <header class="topbar">
       <div class="brand">
         <div class="brand-mark">✦</div>
-        <div>Starfall Academy</div>
+        <div>STARFALL ACADEMY</div>
       </div>
 
       <div class="resources">
         <div class="resource">
           <div class="icon">✧</div>
           <div>
-            <div class="resource-label">Gemmes</div>
+            <div class="resource-label">GEMMES</div>
             <div class="resource-value" id="gemCount">1200</div>
           </div>
         </div>
 
         <div class="resource">
-          <div class="icon">☄</div>
+          <div class="icon">✦</div>
           <div>
-            <div class="resource-label">Pity</div>
+            <div class="resource-label">PITY</div>
             <div class="resource-value" id="pityCount">0</div>
           </div>
         </div>
       </div>
     </header>
 
-    <main class="layout">
-      <section class="panel">
-        <div class="banner">
-          <div class="banner-head">
-            <div class="tag">Nouvelle bannière</div>
-            <div class="banner-switch" id="bannerTabs"></div>
+    <main class="game-shell">
+      <section class="left-panel panel">
+        <div class="zone-header">
+          <div class="zone-label">ZONE DE DÉPART</div>
+          <div class="count-badge" id="starterBadge">0 COMPAGNONS</div>
+        </div>
+
+        <h1 class="main-title">Village de Brume</h1>
+
+        <div class="start-scene">
+          <div class="scene-art">
+            <div class="sun-orb">
+              <div class="orb-core"></div>
+            </div>
           </div>
 
-          <div class="banner-main">
-            <div class="portrait">
-              <div class="portrait-glow"></div>
-              <div class="portrait-silhouette"></div>
-            </div>
+          <div class="scene-copy">
+            <div class="eyebrow">BIENVENUE, AVENTURIER</div>
+            <h2>Le chemin de la lune n’a pas encore été tracé.</h2>
 
-            <div class="feature">
-              <div class="feature-header">
-                <div class="feature-name" id="featureName">Astra Vael</div>
-                <div class="rarity-badge" id="featureRarity">SSR</div>
-              </div>
-
-              <div class="feature-desc" id="featureDesc">
-                Héroïne de la lignée céleste. Elle lit les promesses cachées dans les étoiles et réécrit les destins brisés.
-              </div>
-
-              <div class="stats">
-                <div class="stat">
-                  <div class="stat-label">ATQ</div>
-                  <div class="stat-value" id="statAtq">97</div>
-                </div>
-                <div class="stat">
-                  <div class="stat-label">DÉF</div>
-                  <div class="stat-value" id="statDef">80</div>
-                </div>
-                <div class="stat">
-                  <div class="stat-label">RÉA</div>
-                  <div class="stat-value" id="statRea">94</div>
-                </div>
-              </div>
+            <div class="cta-row">
+              <button id="singlePull" class="primary-btn">Jeton gratuit</button>
+              <button id="multiPull" class="secondary-btn">10x · 900 gemmes</button>
             </div>
           </div>
         </div>
 
-        <div class="pull-zone">
-          <div class="buttons">
-            <button class="primary" id="singlePull">Tirer 1x · 100 gemmes</button>
-            <button class="secondary" id="multiPull">Tirer 10x · 900 gemmes</button>
-          </div>
-
-          <div class="summary">
-            <div class="mini-box">
-              <div class="mini-label">Taux SR</div>
-              <div class="mini-value" id="srRate">14%</div>
-            </div>
-            <div class="mini-box">
-              <div class="mini-label">Pity 5★</div>
-              <div class="mini-value" id="nextPity">80</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="result-panel" id="resultPanel">
-          <div class="result-card visible" id="resultCard">
-            <div class="result-head">
-              <span class="result-rarity" id="resultRarity" style="background: rgba(249,215,121,0.18); color: var(--gold);">SSR</span>
-              <span class="result-label">Dernier tir</span>
+        <div class="result-panel">
+          <div class="result-card" id="resultCard">
+            <div class="result-top">
+              <span id="resultRarity" class="result-star">★★★</span>
+              <span class="result-label">DERNIER TIR</span>
             </div>
 
-            <div class="result-name" id="resultName">Astra Vael</div>
-            <div class="result-meta" id="resultMeta">Origine : Éclipse du Septième Ciel</div>
+            <div class="result-name" id="resultName">Aucun compagnon</div>
+            <div class="result-meta" id="resultMeta">Le voyage commence ici.</div>
 
             <div class="result-skill">
-              <div class="skill-label">Compétence</div>
-              <div class="skill-name" id="resultSkill">Vœu des Étoiles</div>
+              <div class="skill-line">COMPÉTENCE</div>
+              <div id="resultSkill" class="skill-name">—</div>
             </div>
           </div>
         </div>
       </section>
 
-      <aside class="panel">
-        <div class="inventory">
-          <h2>Inventaire</h2>
-          <div class="inventory-list" id="inventoryList"></div>
-        </div>
+      <aside class="right-panel panel">
+        <div class="inventory-title">INVENTAIRE</div>
+        <div id="inventoryList" class="inventory-list"></div>
       </aside>
     </main>
+
+    <section class="recent-section panel">
+      <div class="recent-header">INVOCATION RÉCENTE</div>
+      <div id="summonGrid" class="summon-grid"></div>
+    </section>
+  </div>
+
+  <div class="offer-modal show" id="offerModal" aria-hidden="false">
+    <div class="offer-backdrop"></div>
+    <div class="offer-panel">
+      <div class="offer-badge">Bienvenue</div>
+      <h3>Bienvenue dans le Village de Brume</h3>
+      <p>
+        Pour commencer ton aventure, tu reçois un jeton gratuit d’invocation.
+        Utilise-le pour appeler ton premier compagnon.
+      </p>
+
+      <div class="ticket-box">
+        <span>Jeton offert</span>
+        <strong>1 invocation gratuite</strong>
+      </div>
+
+      <button id="claimFreeToken" class="claim-btn">Recevoir le jeton</button>
+    </div>
+  </div>
+
+  <div class="modal hidden" id="characterModal" aria-hidden="true">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-panel">
+      <button class="close-modal" id="closeModal" aria-label="Fermer">×</button>
+
+      <div class="modal-hero">
+        <div class="modal-image-wrap">
+          <img id="modalImage" alt="Portrait du personnage" />
+        </div>
+
+        <div class="modal-copy">
+          <div class="modal-top">
+            <h3 id="modalName">Nom</h3>
+            <span id="modalRarity" class="modal-stars">★★★</span>
+          </div>
+
+          <div class="modal-subtitle" id="modalTitle">Titre</div>
+          <p id="modalDescription" class="modal-description"></p>
+
+          <div class="modal-stats">
+            <div>
+              <span>ATQ</span>
+              <strong id="modalAtq">0</strong>
+            </div>
+            <div>
+              <span>DÉF</span>
+              <strong id="modalDef">0</strong>
+            </div>
+            <div>
+              <span>RÉA</span>
+              <strong id="modalRea">0</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-details">
+        <div class="detail-box">
+          <span>ORIGINE</span>
+          <strong id="modalOrigin">-</strong>
+        </div>
+        <div class="detail-box">
+          <span>ARME</span>
+          <strong id="modalWeapon">-</strong>
+        </div>
+        <div class="detail-box">
+          <span>ÉLÉMENT</span>
+          <strong id="modalElement">-</strong>
+        </div>
+        <div class="detail-box">
+          <span>COMPÉTENCE</span>
+          <strong id="modalSkill">-</strong>
+        </div>
+      </div>
+
+      <div class="modal-story">
+        <h4>CONTEXTE</h4>
+        <p id="modalStory"></p>
+      </div>
+    </div>
   </div>
 
   <script src="script.js"></script>
