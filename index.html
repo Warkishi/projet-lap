@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Starfall Gacha</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">✦</div>
+        <div>Starfall Academy</div>
+      </div>
+
+      <div class="resources">
+        <div class="resource">
+          <div class="icon">✧</div>
+          <div>
+            <div class="resource-label">Gemmes</div>
+            <div class="resource-value" id="gemCount">1200</div>
+          </div>
+        </div>
+
+        <div class="resource">
+          <div class="icon">☄</div>
+          <div>
+            <div class="resource-label">Pity</div>
+            <div class="resource-value" id="pityCount">0</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel">
+        <div class="banner">
+          <div class="banner-head">
+            <div class="tag">Nouvelle bannière</div>
+            <div class="banner-switch" id="bannerTabs"></div>
+          </div>
+
+          <div class="banner-main">
+            <div class="portrait">
+              <div class="portrait-glow"></div>
+              <div class="portrait-silhouette"></div>
+            </div>
+
+            <div class="feature">
+              <div class="feature-header">
+                <div class="feature-name" id="featureName">Astra Vael</div>
+                <div class="rarity-badge" id="featureRarity">SSR</div>
+              </div>
+
+              <div class="feature-desc" id="featureDesc">
+                Héroïne de la lignée céleste. Elle lit les promesses cachées dans les étoiles et réécrit les destins brisés.
+              </div>
+
+              <div class="stats">
+                <div class="stat">
+                  <div class="stat-label">ATQ</div>
+                  <div class="stat-value" id="statAtq">97</div>
+                </div>
+                <div class="stat">
+                  <div class="stat-label">DÉF</div>
+                  <div class="stat-value" id="statDef">80</div>
+                </div>
+                <div class="stat">
+                  <div class="stat-label">RÉA</div>
+                  <div class="stat-value" id="statRea">94</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pull-zone">
+          <div class="buttons">
+            <button class="primary" id="singlePull">Tirer 1x · 100 gemmes</button>
+            <button class="secondary" id="multiPull">Tirer 10x · 900 gemmes</button>
+          </div>
+
+          <div class="summary">
+            <div class="mini-box">
+              <div class="mini-label">Taux SR</div>
+              <div class="mini-value" id="srRate">14%</div>
+            </div>
+            <div class="mini-box">
+              <div class="mini-label">Pity 5★</div>
+              <div class="mini-value" id="nextPity">80</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="result-panel" id="resultPanel">
+          <div class="result-card visible" id="resultCard">
+            <div class="result-head">
+              <span class="result-rarity" id="resultRarity" style="background: rgba(249,215,121,0.18); color: var(--gold);">SSR</span>
+              <span class="result-label">Dernier tir</span>
+            </div>
+
+            <div class="result-name" id="resultName">Astra Vael</div>
+            <div class="result-meta" id="resultMeta">Origine : Éclipse du Septième Ciel</div>
+
+            <div class="result-skill">
+              <div class="skill-label">Compétence</div>
+              <div class="skill-name" id="resultSkill">Vœu des Étoiles</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="panel">
+        <div class="inventory">
+          <h2>Inventaire</h2>
+          <div class="inventory-list" id="inventoryList"></div>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
